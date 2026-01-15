@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 import {useRef,useEffect} from 'react';
 import { gsap } from 'gsap';
@@ -31,12 +32,12 @@ export default function UpcomingEvent() {
         <div className='overflow-x-hidden bg-black lg:space-y-20'>
             <div className='bg-black min-h-fit w-full lg:flex justify-between px-4 py-5 space-y-6 lg:space-y-0 lg:gap-6 lg:px-6'>
                 <div  ref={textRef} className='flex flex-col w-full lg:w-[42%]'>
-                    <div className='bg-white lg:h-[581.475px] h-[50vh] w-full mx-auto'>
-                        <img
-                        
+                    <div className='bg-white lg:h-[581.475px] h-[50vh] w-full mx-auto relative'>
+                        <Image
                             src="https://images.pexels.com/photos/9189263/pexels-photo-9189263.jpeg"
                             alt="Upcoming Event"
-                            className='w-full h-full object-cover'
+                            fill
+                            className='object-cover'
                         />
                     </div>
                     <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
@@ -56,14 +57,13 @@ export default function UpcomingEvent() {
                     </div>
                 </div>
                 <div  ref={textRef} className='flex flex-col w-full lg:w-[55%]'>
-                    <div className='bg-white h-[60vh] lg:h-[900px] w-full mx-auto'>
-                        <img
-                       
+                    <div className='bg-white h-[60vh] lg:h-[900px] w-full mx-auto relative'>
+                        <Image
                             src="https://images.pexels.com/photos/2337838/pexels-photo-2337838.jpeg"
                             alt="Upcoming Event"
-                            className='w-full h-full object-cover'
+                            fill
+                            className='object-cover'
                         />
-
                     </div>
                     <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
@@ -84,12 +84,12 @@ export default function UpcomingEvent() {
             {/* another two divs */}
             <div  ref={textRef} className='bg-black min-h-fit w-full lg:flex justify-between px-4 py-5 space-y-6 lg:space-y-0 lg:gap-6 lg:px-6'>
                 <div className='flex flex-col w-full lg:w-[70%]'>
-                    <div className='bg-white lg:h-[599.438px] h-[32vh] w-full mx-auto'>
-                        <img
-                       
+                    <div className='bg-white lg:h-[599.438px] h-[32vh] w-full mx-auto relative'>
+                        <Image
                             src="https://images.pexels.com/photos/9393611/pexels-photo-9393611.jpeg"
                             alt="Upcoming Event"
-                            className='w-full h-full object-cover'
+                            fill
+                            className='object-cover'
                         />
                     </div>
                     <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
@@ -107,14 +107,14 @@ export default function UpcomingEvent() {
                     </div>
                 </div>
                 <div  ref={textRef} className='flex flex-col w-full lg:w-[28%]'>
-                    <div className='bg-white h-[60vh] lg:h-[377.038px] w-full mx-auto'>
-                        <img
-                        ref={textRef}
+                    <div className='bg-white h-[60vh] lg:h-[377.038px] w-full mx-auto relative'>
+                        <Image
+                            ref={textRef}
                             src="https://images.pexels.com/photos/8879768/pexels-photo-8879768.jpeg"
                             alt="Upcoming Event"
-                            className='w-full h-full object-cover'
+                            fill
+                            className='object-cover'
                         />
-
                     </div>
                     <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
