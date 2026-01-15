@@ -54,7 +54,7 @@ export default function AfterEvent() {
                 // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
 
-                    <h1 className='flex justify-center font-[Neue] lg:text-8xl text-xl items-center gap-x-3'>
+                    <h1 className='flex justify-center font-[Neue]  lg:text-7xl xl:text-8xl text-xl  items-center gap-x-3'>
                         {/* <ScrollReveal as="span"> */}
                         See Our Past Events
                         {/* </ScrollReveal> */}
@@ -81,7 +81,7 @@ export default function AfterEvent() {
                         </span>
 
                     </h1>
-                    <h1>
+                    <h1 className="lg:text-7xl xl:text-8xl">
                         {/* <ScrollReveal as="span"> */}
                             0_19
                         {/* </ScrollReveal> */}
@@ -103,7 +103,7 @@ export default function AfterEvent() {
                                     (About uxclub)
                                 {/* </ScrollReveal> */}</span>
 
-                            <span className="lg:text-5xl text-sm leading-tight font-bold font-[Neue] tracking-normal">
+                            <span className="lg:text-4xl text-sm leading-tight font-bold font-[Neue] tracking-normal">
                                 <ScrollReveal as="span"  >
                                     Student-driven community for UX and design thinking
                                 </ScrollReveal>
@@ -111,7 +111,7 @@ export default function AfterEvent() {
                         </h1>
 
                         <h1 className="flex gap-x-20 font-semibold">
-                            <span className="lg:text-5xl text-sm leading-tight font-bold font-[Neue] tracking-normal text-left">
+                            <span className="lg:text-4xl text-sm leading-tight font-bold font-[Neue] tracking-normal text-left">
                                 <ScrollReveal as="span">
                                     UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
                                 </ScrollReveal>
@@ -127,10 +127,10 @@ export default function AfterEvent() {
                     // viewport={{ once: false, amount: 0.3 }}
                     // transition={{ duration: 0.8, ease: "easeInOut" }} */}
 
-                        <p className='tracking-normal font-[Neue] text-sm mb-2'>
+                        <p className='tracking-normal font-[Neue] text-sm mb-2 md:text-lg'>
                             (About_uxclub)
                         </p>
-                        <p className="text-[14px] text-justify leading-none font-medium font-[Neue] tracking-normal mt-4">
+                        <p className="text-[14px] md:text-2xl text-justify leading-none font-[Neue] tracking-normal mt-4 font-semibold">
 
                             UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
 
@@ -143,20 +143,20 @@ export default function AfterEvent() {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <div className='hidden tracking-tight leading-tight lg:block space-y-5 font-sans w-full font-bold  lg:w-[60%]'>
-                        <h1 className="lg:pl-[20vw] text-base lg:pr-10">
+                    <div className='hidden  lg:relative xl:relative tracking-tight leading-tight lg:block space-y-5 font-sans w-full font-bold  lg:w-[65%]'>
+                        <h1 className=" lg:absolute xl:leading-tight xl:tracking-tight xl:absolute lg:left-[20rem] xl:text-xs xl:left-[28rem] text-xs ">
                             {/* <ScrollReveal as="span"> */}
                                 Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
                             {/* </ScrollReveal> */}
                         </h1>
-                        <h1 className="lg:pl-[20vw] text-base lg:pr-10">
+                        <h1 className=" lg:absolute xl:absolute xl:leading-tight xl:tracking-tight xl:left-[28rem] xl:top-[4rem] lg:left-[20rem] lg:top-[5rem] text-xs xl:text-xs ">
                             {/* <ScrollReveal as="span"> */}
                                 UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                             {/* </ScrollReveal> */}
                         </h1>
                     </div>
 
-                    <div className='hidden lg:block lg:w-[25%]'>
+                    <div className='hidden  lg:block lg:w-[25%]'>
                         <ul className='space-y-4 font-[Neue] font-medium text-sm tracking-normal'>
                             <li>
                                 Site links:
@@ -292,28 +292,28 @@ export default function AfterEvent() {
                     </div>
 
                     <div className='lg:hidden'>
-                        <p className='tracking-tight font-[Neue] leading-none text-justify text-sm mb-2'>
+                        <p className='tracking-tight font-[Neue] leading-none text-justify text-sm md:text-2xl  mb-2 font-semibold'>
                             Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
                         </p>
-                        <p className="text-sm tracking-tight font-[Neue] text-justify leading-none    mt-4">
+                        <p className="text-sm md:text-2xl tracking-tight font-[Neue] text-justify leading-none  font-semibold  mt-4">
                             UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
                         </p>
                     </div>
                 </div>
 
                 {/* smaller devices ke liye */}
-                <motion.div className="lg:hidden mt-8"
+                <motion.div className="lg:hidden  mt-8"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <ul className='space-y-3 font-[Neue] text-sm tracking-normal text-white'>
+                    <ul className='space-y-3 md:space-y-8 font-[Neue] text-sm w-72 sm:w-[25rem] md:w-[40rem] sm:text-medium md:h-[23rem] md:text-3xl font-semibold tracking-normal text-white'>
                         <li>
                             Site links:
                         </li>
                         <li>
-                            <motion.div className="border-t border-b py-2 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                            <motion.div className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
                                 whileTap="hover"
@@ -342,7 +342,7 @@ export default function AfterEvent() {
                                     strokeWidth={2}
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
-                                    className="w-4 h-4 z-10"
+                                    className="w-4 h-4 z-10 md:w-8 md:h-8"
                                     variants={{
                                         initial: { color: "#ffffff", marginRight: "0px" },
                                         hover: { color: "#000000", marginRight: "10px" },
@@ -355,7 +355,7 @@ export default function AfterEvent() {
                             </motion.div>
                         </li>
                         <li>
-                            <motion.div className="border-t border-b py-2 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                            <motion.div className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
                                 whileTap="hover"
@@ -397,7 +397,7 @@ export default function AfterEvent() {
                             </motion.div>
                         </li>
                         <li>
-                            <motion.div className="border-t border-b py-2 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
+                            <motion.div className="border-t border-b py-2 md:py-4 border-slate-50 flex justify-between items-center relative overflow-hidden cursor-pointer"
                                 initial="initial"
                                 whileHover="hover"
                                 whileTap="hover"

@@ -6,21 +6,21 @@ import { motion} from "framer-motion";
 export default function Footer() {
     return (
         <div>
-            <motion.h1 
+            <h1 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{duration: 0.8, ease: "easeInOut" }}
         className="font-[Socilo] lg:text-[20vw] sm:text-[30vw] md:text-[24vw] text-[40vw] leading-none text-center">
             Ux
-        </motion.h1>
+        </h1>
 
-        <motion.div 
-        initial={{opacity:0,y:40}}
-        whileInView={{opacity:1,y:0}}
-        viewport={{once:false,amount:0.3}}
-        transition={{duration:0.8, ease:"easeInOut"}}
-        className="lg:hidden flex justify-between px-3 mt-10 lg:text-lg sm:text-sm md:text-md text-xs pb-10 bg-black ">
+        <div 
+        // initial={{opacity:0,y:40}}
+        // whileInView={{opacity:1,y:0}}
+        // viewport={{once:false,amount:0.3}}
+        // transition={{duration:0.8, ease:"easeInOut"}}
+        className="lg:hidden flex justify-between px-3 mt-10 lg:text-lg sm:text-sm md:text-md text-xs font-semibold bg-black ">
             <div className="block">
                 <ul >
                     <li className='font-[Neue]'>
@@ -69,7 +69,7 @@ export default function Footer() {
                     </li>
                 </ul>
             </div>
-        </motion.div>
+        </div>
         </div>
         
     )

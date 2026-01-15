@@ -10,17 +10,17 @@ export default function Home({show}) {
     <>
       <div className=" min-h-fit pb-4 sm:pb-0 w-full bg-[#0e0e0e] relative text-[#eceae5] pt-3 font-[Neue] ">
         <Nav />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.4 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{duration: 1.1, delay:0.7, ease: "easeInOut" }}
-          style={{ transformOrigin: "center" }}
+        <div
+          // initial={{ opacity: 0, scale: 0.4 }}
+          // whileInView={{ opacity: 1, scale: 1 }}
+          // viewport={{ once: true, amount: 0.3 }}
+          // transition={{duration: 1.1, delay:0.7, ease: "easeInOut" }}
+          // style={{ transformOrigin: "center" }}
         >
           <h1 className="font-[Socilo] lg:text-[28vw] lg:pl-5 xl:text-[30vw] sm:text-[28vw] md:text-[28vw] text-[28vw] leading-none tracking-wide lg:pt-24 sm:pt-18 md:pt-15 pt-10 text-center ">
             Club
           </h1>
-        </motion.div>
+        </div>
 
       </div>
 

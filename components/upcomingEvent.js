@@ -19,7 +19,7 @@ export default function UpcomingEvent() {
                             className='object-cover'
                         />
                     </div>
-                    <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
+                    <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
                             {/* <ScrollReveal as="span" > */}
                                
@@ -44,7 +44,7 @@ export default function UpcomingEvent() {
                             className='object-cover'
                         />
                     </div>
-                    <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
+                    <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
                             {/* <ScrollReveal as="span"> */}
                             002 / M_001
@@ -71,7 +71,7 @@ export default function UpcomingEvent() {
                             className='object-cover'
                         />
                     </div>
-                    <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
+                    <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
                             {/* <ScrollReveal as="span"> */}
                             001 / M_013
@@ -94,7 +94,7 @@ export default function UpcomingEvent() {
                             className='object-cover'
                         />
                     </div>
-                    <div className='text-medium font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
+                    <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
                             {/* <ScrollReveal as="span"> */}
                             002 / M_001
