@@ -143,7 +143,7 @@ export default function AfterEvent() {
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    <div className='hidden  lg:relative xl:relative tracking-tight leading-tight lg:block space-y-5 font-sans w-full font-bold  lg:w-[60%]'>
+                    <div className='hidden  lg:relative xl:relative tracking-tight leading-tight lg:block space-y-5 font-[Neue] w-full font-bold  lg:w-[60%] xl:w-[60%] '>
                         <h1 className=" lg:absolute xl:leading-tight xl:tracking-tight xl:absolute lg:left-[20rem] xl:text-xs xl:left-[28rem] text-xs ">
                             {/* <ScrollReveal as="span"> */}
                                 Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
