@@ -42,12 +42,14 @@ export default function UpcomingEvent() {
                 </div>
                 <div  className='flex flex-col w-full lg:w-[55%]'>
                     <div className='bg-white h-[60vh] lg:h-[900px] w-full mx-auto relative'>
+                        <Link href="/card-stack/imagess">
                         <Image
                             src="https://images.pexels.com/photos/2337838/pexels-photo-2337838.jpeg"
                             alt="Upcoming Event"
                             fill
                             className='object-cover'
                         />
+                        </Link>
                     </div>
                     <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
@@ -58,7 +60,7 @@ export default function UpcomingEvent() {
 
                         <h1>
                             {/* <ScrollReveal as="span"> */}
-                            CHAIR
+                            MEMBERS
                             {/* </ScrollReveal> */}
                         </h1>
                     </div>
@@ -69,12 +71,14 @@ export default function UpcomingEvent() {
             <div  className='bg-black min-h-fit w-full lg:flex justify-between px-4 py-5 space-y-6 lg:space-y-0 lg:gap-6 lg:px-6'>
                 <div className='flex flex-col w-full lg:w-[70%]'>
                     <div className='bg-white lg:h-[599.438px] h-[32vh] w-full mx-auto relative'>
+                        <Link href="/card-stack/teacher">
                         <Image
                             src="https://images.pexels.com/photos/9393611/pexels-photo-9393611.jpeg"
                             alt="Upcoming Event"
                             fill
                             className='object-cover'
                         />
+                        </Link>
                     </div>
                     <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
@@ -85,19 +89,23 @@ export default function UpcomingEvent() {
 
                         <h1>
                             {/* <ScrollReveal as="span"> */}
-                            DINING CHAIR
+                            TEACHER
                             {/* </ScrollReveal> */}
                         </h1>
                     </div>
                 </div>
                 <div  className='flex flex-col w-full lg:w-[28%]'>
                     <div className='bg-white h-[60vh] lg:h-[377.038px] w-full mx-auto relative'>
+                        <Link href="/card-stack/students">
+                            
                         <Image
                             src="https://images.pexels.com/photos/8879768/pexels-photo-8879768.jpeg"
                             alt="Upcoming Event"
                             fill
                             className='object-cover'
                         />
+                    
+                        </Link>
                     </div>
                     <div className='text-xs font-bold pt-2 text-slate-100 font-[Neue] flex justify-between w-full mx-auto'>
                         <h1>
@@ -108,7 +116,7 @@ export default function UpcomingEvent() {
 
                         <h1>
                             {/* <ScrollReveal as="span"> */}
-                            CHAIR
+                            STUDENTS
                             {/* </ScrollReveal> */}
                         </h1>
                     </div>

@@ -4,7 +4,7 @@ import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Home from "@/components/Home";
+import Home from "../components/Home";
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);

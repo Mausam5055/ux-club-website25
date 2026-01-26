@@ -2,9 +2,9 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import "@/components/features/team/components/TeamPage.css";
+import "../../components/features/team/components/TeamPage.css";
 
-import teamImg from "@/components/features/team/assets/image.jpg";
+import teamImg from "../../components/features/team/assets/image.jpg";
 
 const teams = [
   { name: "Tech Team", image: teamImg, link: "/team/tech" },
