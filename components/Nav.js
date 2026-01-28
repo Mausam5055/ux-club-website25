@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
+import Image from "next/image";
 
-export default function Nav() {
+// Ported Original Nav for Mobile
+function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -15,7 +17,6 @@ export default function Nav() {
   };
 
   useEffect(() => {
-    console.log(isMenuOpen);
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -55,7 +56,10 @@ export default function Nav() {
 
   return (
     <>
-      <div className="text-xs flex items-center justify-between font-medium fixed w-full px-4 z-50 bg-transparent">
+      <div className="text-xs flex items-center justify-between font-medium fixed w-full px-4 pt-4 pb-2 z-50 bg-transparent text-[#eceae5] mix-blend-difference">
+         {/* Added mix-blend-difference and padding adjustments for visibility on mobile if needed, 
+             but sticking to original structure mostly. Original had explicit colors based on menu state.
+         */}
         <div className="flex items-center gap-10">
           <h1
             className={`uppercase ${
@@ -93,7 +97,7 @@ export default function Nav() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="lg:hidden fixed top-0 left-0 w-full h-[100dvh] bg-[#eceae5] z-40 text-[#0e0e0e] text-xs flex flex-col"
+            className="fixed top-0 left-0 w-full h-[100dvh] bg-[#eceae5] z-40 text-[#0e0e0e] text-xs flex flex-col"
             variants={menuVariants}
             initial="hidden"
             animate="visible"
@@ -254,6 +258,198 @@ export default function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
+    </>
+  );
+}
+
+function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
+  const [time, setTime] = useState("");
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    // Clock
+    const updateTime = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString("en-US", {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+
+    // Scroll Progress
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+      setScrollProgress(Number(scroll).toFixed(2) * 100); // 0-100
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const panelVariants = {
+    closed: { 
+      height: 0, 
+      opacity: 0,
+      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
+    },
+    open: {
+      height: "60vh",
+      opacity: 1,
+      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+    },
+  };
+
+  return (
+    <motion.div className="fixed top-0 left-0 w-full z-50 font-[Neue]">
+      {/* Expandable Beige Panel (Now on Top) */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            variants={panelVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="w-full bg-[#eceae5] text-[#0e0e0e] overflow-hidden relative border-b border-[#0e0e0e]/10"
+          >
+            {/* Close Button Inside Panel */}
+             <div className="absolute top-6 right-8 z-10">
+                <button 
+                    onClick={toggleMenu}
+                    className="flex items-center gap-2 hover:opacity-70 transition-opacity uppercase text-sm font-medium"
+                >
+                    <span className="text-xl font-light">+</span> (Close)
+                </button>
+            </div>
+
+            <div className="w-full h-full flex p-12 pt-16">
+                {/* Column 1: About */}
+                <div className="w-1/3 pr-12 flex flex-col justify-between">
+                    <div>
+                        <div className="text-xs text-zinc-500 mb-4 uppercase">(About_UX_Club)</div>
+                        <p className="text-xl leading-relaxed text-zinc-800 font-medium max-w-md">
+                            UX Club is a design community focused on creating exceptional user experiences. We explore the intersection of design, technology, and human interaction through workshops, projects, and collaboration.
+                        </p>
+                    </div>
+                    
+                     {/* Footer Links (Left) */}
+                     <div className="flex justify-between text-xs font-semibold uppercase tracking-wide mt-auto">
+                        <div className="flex flex-col gap-1">
+                            <span>User Experience</span>
+                            <span>and Design</span>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                            <span>Designed by</span>
+                            <span>UX Club, VIT Bhopal</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Column 2: Finishes */}
+                <div className="w-1/3 flex flex-col justify-between border-l border-[#0e0e0e]/10 pl-12">
+                   <div>
+                        <div className="text-xs text-zinc-500 mb-4 uppercase">Departments</div>
+                        <ul className="text-sm font-semibold space-y-2">
+                            <li className="cursor-pointer hover:underline">Design</li>
+                            <li className="cursor-pointer hover:underline">Technical</li>
+                            <li className="cursor-pointer hover:underline">Content</li>
+                            <li className="cursor-pointer hover:underline">Events</li>
+                        </ul>
+                   </div>
+
+                    {/* Footer Links (Center) */}
+                    <div className="flex justify-between text-xs font-semibold uppercase tracking-wide mt-auto">
+                         <div className="flex flex-col gap-1">
+                            <span>Contact</span>
+                            <a href="mailto:uxclub@vitbhopal.ac.in" className="hover:underline">uxclub@vitbhopal.ac.in</a>
+                        </div>
+                         <div className="flex flex-col gap-1">
+                            <a href="#" className="flex items-center gap-1 hover:underline">
+                                Instagram <GoArrowUpRight/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Column 3: Image */}
+                <div className="w-1/3 relative h-full pl-12">
+                    <div className="relative w-full h-full bg-zinc-200">
+                         {/* Placeholder or Generated Image */}
+                         <Image 
+                            src="/nav_chair.png" 
+                            alt="UX Club" 
+                            fill 
+                            className="object-cover"
+                         />
+                    </div>
+                </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Black Top Bar (Now Below Panel) */}
+      <div className="w-full bg-[#0e0e0e] text-[#eceae5] h-[80px] px-8 flex items-center justify-between text-sm uppercase tracking-wide z-50 relative">
+        {/* Left: Logo */}
+        <div className="font-bold text-lg tracking-tighter w-1/4">UX CLUB</div>
+
+        {/* Center-Left: Info */}
+        <div className="flex items-center gap-12 w-1/4">
+            <span className="opacity-50">{time}</span>
+            <span className="font-semibold">New York, NY</span>
+        </div>
+
+        {/* Center: Scroll */}
+        <div className="w-1/4 text-center">
+            <span className="font-mono">
+                {Math.round(scrollProgress).toString().padStart(2, '0')}%
+            </span>
+        </div>
+
+        {/* Right: Navigation Links */}
+        <div className="flex items-center justify-end gap-8 w-1/4">
+          <div className="flex gap-6 text-[#9CA3AF]">
+            <Link href="/" className="hover:text-white transition-colors">1. Home</Link>
+            <Link href="/index" className="hover:text-white transition-colors">2. Index</Link>
+            <button 
+                onClick={toggleMenu} 
+                className={`hover:text-white transition-colors ${isMenuOpen ? "text-white" : ""}`}
+            >
+                3. Information
+            </button>
+          </div>
+          {/* Status Dot */}
+          <div className={`w-2.5 h-2.5 rounded-full ${isMenuOpen ? "bg-white" : "bg-[#eceae5]"}`}></div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Nav({ isMenuOpen, setIsMenuOpen }) {
+  return (
+    <>
+      <div className="md:hidden">
+        <MobileNav />
+      </div>
+      <div className="hidden md:block">
+        <DesktopNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      </div>
     </>
   );
 }
