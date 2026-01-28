@@ -6,14 +6,14 @@ import { motion} from "framer-motion";
 export default function Footer() {
     return (
         <div>
-            <h1 
+            <motion.h1 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{duration: 0.8, ease: "easeInOut" }}
         className="font-[Socilo] lg:text-[20vw] sm:text-[30vw] md:text-[24vw] text-[40vw] leading-none text-center">
             Ux
-        </h1>
+        </motion.h1>
 
         <div 
         // initial={{opacity:0,y:40}}
