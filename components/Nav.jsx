@@ -303,7 +303,11 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
   };
 
   const panelVariants = {
-    closed: { height: 0, opacity: 0 },
+    closed: { 
+      height: 0, 
+      opacity: 0,
+      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
+    },
     open: {
       height: "60vh",
       opacity: 1,
