@@ -118,7 +118,6 @@
 }
 
 .team-grid {
-  margin:5vh 0;
   padding: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -135,9 +134,9 @@
 }
 
 .team-name {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
-  color: white;
+  color: rgb(134, 133, 133);
   margin-bottom: 1px;
 }
 
@@ -225,13 +224,15 @@
 }
 
 .view-controls {
-  padding: 1.5rem 2rem;
+  padding:  2rem;
+  padding-top: 6rem;;
   font-size: 1.2rem;
+  
 }
 
 .team-grid{
   position: relative;
-  padding-top: 150px;
+  padding-top: 50px;
   grid-template-columns: repeat(10, 1fr);
   gap: 4rem;
   padding-left: 5rem;

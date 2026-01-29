@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      
       
       {/* Animated content wrapper that slides down when menu opens */}
       <motion.div

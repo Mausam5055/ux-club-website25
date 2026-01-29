@@ -50,16 +50,16 @@ const TeamPage = () => {
 
   return (
     <div className="team-container ">
-      <div className="top-box">
-        <div className="header">
+      
+        {/* <div className="header">
           <span className="header-start font-[Neue] text-xs">MEET THE TEAM</span>
           <span ref={percentRef} className="scroll-percent font-[Neue] text-xs">
             00%
           </span>
           <span className="header-end font-[Neue] text-xs">MENU ●</span>
-        </div>
+        </div> */}
 
-        <div className="view-controls">
+        <div className="view-controls ">
           <span
             onClick={() => setShowMembers(false)}
             className={`font-[Neue] text-base cursor-pointer ${!showMembers ? "" : "faded"
@@ -68,7 +68,7 @@ const TeamPage = () => {
             TEAM
           </span>
 
-          <span className="mx-1 text-base">/</span>
+          <span className="mx-1 font-[Neue] text-base">/</span>
 
           <span
             onClick={() => setShowMembers(true)}
@@ -79,7 +79,7 @@ const TeamPage = () => {
           </span>
         </div>
 
-      </div>
+  
 
       {showMembers ? (
         <Members  className=''/>
@@ -87,7 +87,7 @@ const TeamPage = () => {
         <div className="team-grid ">
           {teams.map((team, index) => (
             <Link href={team.link} key={index} className="team-card ">
-              <h4 className="team-name">{team.name}</h4>
+              <h4 className="team-name font-mono ">{team.name}</h4>
               <div className="placeholder " style={{ position: 'relative' }}>
                 <Image src={team.image} alt={team.name} className="team-image" fill sizes="(max-width: 800px) 50vw, 30vw" style={{ objectFit: 'cover' }} />
               </div>

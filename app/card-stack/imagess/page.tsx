@@ -161,10 +161,10 @@ export default function ImagessPage() {
 
   return (
     <div
-      className="min-h-screen w-full flex flex-col items-center mt-25 relative overflow-hidden"
+      className="min-h-screen w-full flex flex-col items-center mt-10 relative overflow-hidden"
       style={{ background: '#000000' }}
     >
-      <h1 className="text-2xl font-bold mb-8 text-white">Members</h1>
+      {/* <h1 className="text-2xl font-bold mb-8 text-white">Members</h1> */}
       
       {hoveredIdx !== null && (
         <div
@@ -213,19 +213,19 @@ export default function ImagessPage() {
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={handleMouseLeave}
           >
-            <span className=" lg:block hidden font-semibold font-[Neue]  text-white transition-all duration-500 ease-out group-hover:text-black">
+            <span className=" lg:block hidden font-semibold font-mono  text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
               {String(idx + 1).padStart(3, '0')}
             </span>
-            <span className="lg:hidden font-[Neue] text-xs text-white transition-all duration-500 ease-out group-hover:text-black">
+            <span className="lg:hidden  text-xs font-mono text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
               {String(idx + 1).padStart(3, '0')}
             </span>
-            <span className='lg:block hidden font-semibold font-[Neue] mx-[15rem] flex-1 text-left  text-white transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
-            <span className='lg:hidden font-[Neue] mx-[2rem] flex-1 text-left  text-xs font-semibold text-white transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
+            <span className='lg:block hidden font-semibold font-[Neue] mx-[15rem] flex-1 text-left  text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
+            <span className='lg:hidden font-[Neue] mx-[2rem] flex-1 text-left  text-xs font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black'>{item.name}</span>
             
-            <span className="lg:block hidden font-[Neue] font-semibold text-white transition-all duration-500 ease-out group-hover:text-black">
+            <span className="lg:block hidden font-mono font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
               {item.team}
             </span>
-            <span className="lg:hidden text-xs font-[Neue] font-semibold text-white transition-all duration-500 ease-out group-hover:text-black">
+            <span className="lg:hidden text-xs font-mono font-semibold text-[#ECEAE5] transition-all duration-500 ease-out group-hover:text-black">
               {item.team}
             </span>
             
