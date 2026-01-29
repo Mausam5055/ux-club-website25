@@ -11,8 +11,6 @@ export default function Home() {
 
   return (
     <>
-      
-      
       {/* Animated content wrapper that slides down when menu opens */}
       <motion.div
         className="relative bg-[#0e0e0e]"
