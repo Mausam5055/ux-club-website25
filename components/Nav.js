@@ -11,6 +11,21 @@ import Image from "next/image";
 function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      if (windowHeight === 0) return;
+      const scroll = totalScroll / windowHeight;
+      setScrollProgress(Math.min(100, Math.max(0, scroll * 100)));
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,7 +71,7 @@ function MobileNav() {
 
   return (
     <>
-      <div className="text-xs flex items-center justify-between font-medium fixed w-full px-4 pt-4 pb-2 z-50 bg-transparent text-[#eceae5] mix-blend-difference">
+    <div className={`text-xs flex items-center justify-between font-medium fixed w-full px-4 pt-4 pb-2 z-50 bg-transparent text-[#eceae5] ${!isMenuOpen ? "mix-blend-difference" : ""}`}>
          {/* Added mix-blend-difference and padding adjustments for visibility on mobile if needed, 
              but sticking to original structure mostly. Original had explicit colors based on menu state.
          */}
@@ -71,7 +86,7 @@ function MobileNav() {
           {isMenuOpen ? (
             <div className="text-[#0e0e0e]">Bhopal, India</div>
           ) : (
-            <div>00%</div>
+            <div>{Math.round(scrollProgress).toString().padStart(2, '0')}%</div>
           )}
         </div>
         <div className="flex items-center gap-2">
