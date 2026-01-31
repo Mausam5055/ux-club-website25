@@ -2,16 +2,16 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
+ 
 const facultyMembers = [
   {
     img: 'https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format',
     name: 'Dr. Ananya Sharma',
     designation: 'Faculty Advisor – UX Club',
-    department: 'Computer Science & Engineering',
+    department: 'D&I',
     expertise: ['User Experience Design', 'Human–Computer Interaction', 'Design Thinking'],
     availability: 'Weekly Mentorship Sessions',
-    role: 'Guides club strategy and academic alignment',
+    role: 'Guides club strategy ',
     affiliation: 'College Faculty',
     bio:
       'Provides academic guidance and mentorship to UX Club members, helping bridge design theory with practical, industry-relevant applications.',
@@ -20,10 +20,10 @@ const facultyMembers = [
     img: 'https://cdn.pixabay.com/photo/2016/11/26/23/45/dog-1861839_960_720.jpg',
     name: 'Prof. Rahul Verma',
     designation: 'Faculty Coordinator',
-    department: 'Information Technology',
+    department: 'IT',
     expertise: ['Frontend Development', 'Web Technologies', 'Accessibility'],
     availability: 'Bi-weekly Technical Sessions',
-    role: 'Oversees technical initiatives and workshops',
+    role: 'technical initiatives',
     affiliation: 'College Faculty',
     bio:
       'Supports frontend and technical learning within the club, ensuring best practices in modern web development and accessibility standards.',
@@ -32,10 +32,10 @@ const facultyMembers = [
     img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=500&auto=format',
     name: 'Dr. Neha Iyer',
     designation: 'Mentor – Product & Research',
-    department: 'Design & Innovation',
+    department: 'MENTOR',
     expertise: ['User Research', 'Product Strategy', 'Usability Testing'],
     availability: 'Project-based Mentorship',
-    role: 'Mentors student projects and research activities',
+    role: 'Mentor student activities',
     affiliation: 'College Faculty',
     bio:
       'Mentors student-led projects and hackathons, focusing on research-driven design decisions and creating strong, portfolio-ready outcomes.',
@@ -72,8 +72,8 @@ export default function ProductDetail() {
   const next = () => setCurrent((i) => (i === facultyMembers.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-sans pb-24">
-      <div className="w-full  px-8 py-15">
+    <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-[Neue] pb-24">
+      <div className="w-full  px-3.5 py-15">
         {/* Image Slider Section */}
         <div className="flex justify-center mb-8 relative">
           <div className="relative">
@@ -90,7 +90,7 @@ export default function ProductDetail() {
             </div> */}
             {/* Detail View button */}
             <div className="absolute bottom-4 right-4">
-              <button className="border border-[#ECEAE5] bg-black text-[#ECEAE5] px-3 py-1 text-xs font-mono hover:bg-[#ECEAE5] hover:text-black transition">
+              <button className="border border-[#ECEAE5] bg-black text-[#ECEAE5] px-3 py-1 text-xs font-[Neue] hover:bg-[#ECEAE5] hover:text-black transition">
                 (DETAIL VIEW)
               </button>
             </div>
@@ -121,13 +121,19 @@ export default function ProductDetail() {
           {/* Title Row */}
           <div className="flex justify-between items-start mb-5">
             <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="hidden lg:block text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                {prod.name}
+              </h1>
+              <h1 className="lg:hidden text-xl   font-semibold leading-tight">
                 {prod.name}
               </h1>
             </div>
             <div className="text-right">
-              <h2 className="text-2xl md:text-3xl font-medium text-[#ECEAE5]">
-                {prod.designation}
+              <h2 className="lg:hidden text-xl md:text-3xl font-semibold text-[#ECEAE5]">
+                {prod.department}
+              </h2>
+              <h2 className="hidden lg:block text-2xl md:text-3xl font-semibold text-[#ECEAE5]">
+                {prod.department}
               </h2>
               {/* Plus icon */}
               {/* <div className="mt-8">
@@ -149,62 +155,105 @@ export default function ProductDetail() {
             <div className="space-y-8">
               {/* Bio in left side */}
               <div className="mb-8">
-                <p className="text-lg md:text-xl lg:text-2xl leading-relaxed font-medium">
+                <p className='text-xs mb-2'>( About )</p>
+                <p className="hidden lg:block text-lg md:text-xl lg:text-2xl leading-relaxed font-semibold">
                   {prod.bio}
                 </p>
+                <p className="lg:hidden text-sm  leading-snug md:text-xl font-semibold">
+                  {prod.bio} 
+                </p>
               </div>
-
               <div>
-                <span className="uppercase text-sm font-mono text-gray-300 block mb-2">(NAME)</span>
-                <hr className="border-t border-[#ECEAE5] mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(NAME)</span>
+                
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(NAME)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                />
                 <div className="text-right">
-                  <span className="text-3xl md:text-4xl font-bold">{prod.name}</span>
+                  <span className="hidden lg:block text-3xl md:text-4xl font-bold">{prod.name}</span>
+
+                  <span className="lg:hidden text-xl md:text-4xl font-bold">{prod.name}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-300 block mb-2">(DEPARTMENT)</span>
-                <hr className="border-t border-[#ECEAE5] mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(designation)</span>
+
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(designation)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.3, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.department}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.designation}</span>
+
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.designation}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-300 block mb-2">(AVAILABILITY)</span>
-                <hr className="border-t border-[#ECEAE5] mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(AVAILABILITY)</span>
+
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(AVAILABILITY)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.4, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.availability}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.availability}</span>
+
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.availability}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-300 block mb-2">(AFFILIATION)</span>
-                <hr className="border-t border-[#ECEAE5] mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(AFFILIATION)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(AFFILIATION)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.affiliation}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.affiliation}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.affiliation}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-300 block mb-2">(ROLE)</span>
-                <hr className="border-t border-[#ECEAE5] mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(ROLE)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(ROLE)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.6, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.role}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.role}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.role}</span>
                 </div>
               </div>
             </div>
 
             {/* Center Column - Vertical Line */}
             <div className="hidden lg:flex justify-center">
-              <div className="w-px bg-[#ECEAE5] h-full ml-4"></div>
+              <div className="w-[1px] h-full bg-white" />
+
             </div>
 
             {/* Right Column */}
             <div className="space-y-4">
-              <div className="bg-white text-black px-6 py-4 flex justify-between items-center">
+              <div className="bg-white text-black px-4 py-4 flex justify-between items-center">
                 <span className="font-mono text-sm font-bold">EXPERTISE</span>
-                <span className="text-lg font-bold">{prod.expertise[0]} ▼</span>
+                <span className="hidden lg:block  text-lg font-bold">{prod.expertise[0]} ▼</span>
+
+                <span className="lg:hidden text-base font-bold">{prod.expertise[0]} ▼</span>
               </div>
               
                <motion.button
@@ -225,7 +274,6 @@ export default function ProductDetail() {
           ease: 'easeOut',
         }}
       />
-
       {/* Button text */}
       <motion.span
         className="relative z-10"
