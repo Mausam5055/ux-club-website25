@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GoArrowUpRight } from "react-icons/go";
 import Image from "next/image";
+import { navigate } from "next/dist/client/components/segment-cache/navigation";
 
 // Ported Original Nav for Mobile
 function MobileNav() {
@@ -29,6 +30,7 @@ function MobileNav() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    
   };
 
   useEffect(() => {

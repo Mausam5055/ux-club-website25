@@ -5,7 +5,6 @@ import Footer from "./footer";
 import UpcomingEvent from "./upcomingEvent";
 import AfterEvent from "./AfterEvent";
 import Video from "./videoPart";
-
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -14,7 +13,7 @@ export default function Home() {
       {/* Animated content wrapper that slides down when menu opens */}
       <motion.div
         className="relative bg-[#0e0e0e]"
-        animate={{ 
+        animate={{
           y: isMenuOpen ? "60vh" : 0 
         }}
         transition={{ 
@@ -38,6 +37,7 @@ export default function Home() {
         <Video />
         {/* footer Page Component */}
         <div className="lg:min-h-[60vh] min-h-[40vh] sm:min-h-[60vh] md:min-h-[60vh] w-full bg-black text-[#eceae5] pt-3 font-[Neue]">
+          
           <Footer />
         </div>
         {/*  removed the leader component (HeadPage.js) from home page */}

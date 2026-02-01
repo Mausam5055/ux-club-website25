@@ -1,180 +1,52 @@
-// // w-full max-w-xs
-// 'use client'
-// import React, { useState } from 'react';
 
-// const products = [
-//   {
-//     img: 'https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format',
-//     model: 'M_013',
-//     type: 'Dining_Chair',
-//     dimensions: 'W56 D40 H71cm',
-//     leadTime: '10-12 Weeks',
-//     origin: 'Mexico',
-//     materials: ['White Oak', 'Walnut'],
-//     weight: '28kg',
-//     designer: 'Monolith Studio',
-//     about: 'Sculpted with bold curvature, the M_013 Dining Chair merges soft volumes with a stark, intersecting silhouette. The striking form, defined by its low T-shaped backrest, is both solid and airy, using negative space to create a dynamic interplay of balance and support.',
-//   },
-//   {
-//     img: 'https://cdn.pixabay.com/photo/2016/11/26/23/45/dog-1861839_960_720.jpg',
-//     model: 'M_014',
-//     type: 'Side_Table',
-//     dimensions: 'W40 D40 H50cm',
-//     leadTime: '8-10 Weeks',
-//     origin: 'Italy',
-//     materials: ['Walnut'],
-//     weight: '12kg',
-//     designer: 'Studio Roma',
-//     about: 'A minimal side table crafted from premium walnut, designed for both function and elegance in modern interiors.',
-//   },
-//   // Add more products as needed
-// ];
-
-// export default function ProductDetail() {
-//   const [current, setCurrent] = useState(0);
-//   const prod = products[current];
-
-//   const prev = () => setCurrent((i) => (i === 0 ? products.length - 1 : i - 1));
-//   const next = () => setCurrent((i) => (i === products.length - 1 ? 0 : i + 1));
-
-//   return (
-//     <div className="min-h-screen w-full bg-[#eceae5] flex flex-col items-center px-4 py-6 font-sans">
-//       {/* Image + Close Button */}
-//       <div className="w-full flex justify-center relative mb-4">
-//         <img
-//           src={prod.img}
-//           alt={prod.type}
-//           className="w-[375px] h-[375px] rounded-lg object-cover"
-//         />
-//         <span className="absolute top-2 right-2 text-gray-600 font-bold text-lg cursor-pointer select-none">Close</span>
-//       </div>
-//       {/* Title Row + Slider Controls */}
-//       <div className="flex justify-between items-center w-[375px] mb-2">
-//         <span className="font-bold text-lg tracking-wide">{prod.model}</span>
-//         <span className="font-bold text-lg tracking-wide">{prod.type}</span>
-//       </div>
-//       <div className="flex items-center w-full max-w-xs mb-2">
-//         <span className="text-xs text-gray-600">{current + 1}/{products.length}</span>
-//         <div className="ml-auto flex gap-2">
-//           <button
-//             onClick={prev}
-//             className="px-2 py-1 text-lg text-gray-700 border border-gray-400 rounded hover:bg-black hover:text-white transition"
-//             aria-label="Previous"
-//           >←</button>
-//           <button
-//             onClick={next}
-//             className="px-2 py-1 text-lg text-gray-700 border border-gray-400 rounded hover:bg-black hover:text-white transition"
-//             aria-label="Next"
-//           >→</button>
-//         </div>
-//       </div>
-//       <hr className="w-full max-w-xs border-t border-black mb-2" />
-//       {/* About Product */}
-//       <div className="w-full max-w-xs mb-2">
-//         <span className="uppercase text-xs font-mono text-gray-700">(About_Product)</span>
-//         <p className="mt-1 text-sm font-semibold text-black">{prod.about}</p>
-//       </div>
-//       <hr className="w-full max-w-xs border-t border-black mb-2" />
-//       {/* Info List */}
-//       <div className="w-full max-w-xs space-y-2">
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Model)</span>
-//           <div className="font-bold text-lg">{prod.model}</div>
-//         </div>
-//         <hr className="border-t border-black" />
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Dimensions)</span>
-//           <div className="font-bold text-lg">{prod.dimensions}</div>
-//         </div>
-//         <hr className="border-t border-black" />
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Lead Time)</span>
-//           <div className="font-bold text-lg">{prod.leadTime}</div>
-//         </div>
-//         <hr className="border-t border-black" />
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Place of Origin)</span>
-//           <div className="font-bold text-lg">{prod.origin}</div>
-//         </div>
-//         <hr className="border-t border-black" />
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Materials)</span>
-//           <div className="font-bold text-lg">
-//             {prod.materials[0]}{' '}
-//             {prod.materials[1] && <span className="text-gray-400 font-normal">{prod.materials[1]}</span>}
-//           </div>
-//         </div>
-//         <hr className="border-t border-black" />
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Weight)</span>
-//           <div className="font-bold text-lg">{prod.weight}</div>
-//         </div>
-//         <hr className="border-t border-black" />
-//         <div>
-//           <span className="uppercase text-xs font-mono text-gray-700">(Designed By)</span>
-//           <div className="font-bold text-lg">{prod.designer}</div>
-//         </div>
-//       </div>
-//       {/* Material Selector */}
-//       <div className="w-full max-w-xs mt-4 mb-2">
-//         <div className="bg-black text-white px-4 py-2 rounded flex justify-between items-center font-mono text-sm">
-//           <span>MATERIAL</span>
-//           <span>{prod.materials[0]} ▼</span>
-//         </div>
-//       </div>
-//       {/* Inquiry Button */}
-//       <button className="w-full max-w-xs border border-black px-4 py-2 mt-2 text-black font-mono text-sm bg-transparent">
-//         INQUIRE ABOUT PRODUCT
-//       </button>
-//     </div>
-//   );
-// }
 'use client'
 import React, { useState, useEffect } from 'react';
-
-const products = [
+import { motion } from 'framer-motion';
+ 
+const facultyMembers = [
   {
     img: 'https://images.unsplash.com/photo-1452626212852-811d58933cae?q=80&w=500&auto=format',
-    model: 'M_013',
-    type: 'Dining_Chair',
-    dimensions: 'W56 D40 H71cm',
-    leadTime: '10-12 Weeks',
-    origin: 'Mexico',
-    materials: ['White Oak', 'Walnut'],
-    weight: '28kg',
-    designer: 'Monolith Studio',
-    about: 'Sculpted with bold curvature, the M_013 Dining Chair merges soft volumes with a stark, intersecting silhouette. The striking form, defined by its low T-shaped backrest, is both solid and airy, using negative space to create a dynamic interplay of balance and support.',
+    name: 'Dr. Ananya Sharma',
+    designation: 'Faculty Advisor – UX Club',
+    department: 'D&I',
+    expertise: ['User Experience Design', 'Human–Computer Interaction', 'Design Thinking'],
+    availability: 'Weekly Mentorship Sessions',
+    role: 'Guides club strategy ',
+    affiliation: 'College Faculty',
+    bio:
+      'Provides academic guidance and mentorship to UX Club members, helping bridge design theory with practical, industry-relevant applications.',
   },
   {
     img: 'https://cdn.pixabay.com/photo/2016/11/26/23/45/dog-1861839_960_720.jpg',
-    model: 'M_014',
-    type: 'Side_Table',
-    dimensions: 'W40 D40 H50cm',
-    leadTime: '8-10 Weeks',
-    origin: 'Italy',
-    materials: ['Walnut'],
-    weight: '12kg',
-    designer: 'Studio Roma',
-    about: 'A minimal side table crafted from premium walnut, designed for both function and elegance in modern interiors.',
+    name: 'Prof. Rahul Verma',
+    designation: 'Faculty Coordinator',
+    department: 'IT',
+    expertise: ['Frontend Development', 'Web Technologies', 'Accessibility'],
+    availability: 'Bi-weekly Technical Sessions',
+    role: 'technical initiatives',
+    affiliation: 'College Faculty',
+    bio:
+      'Supports frontend and technical learning within the club, ensuring best practices in modern web development and accessibility standards.',
   },
   {
     img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=500&auto=format',
-    model: 'M_005',
-    type: 'Bench',
-    dimensions: 'L132 D40 H40cm',
-    leadTime: '6-8 Weeks',
-    origin: 'Italy',
-    materials: ['Lava Rock'],
-    weight: '45kg',
-    designer: 'Monolith Studio',
-    about: 'Crafted from 3 precisely carved blocks, the curved figure of the M_005 Bench emphasizes the connection between its parts. Its soft curves playfully bend the structure, its engineering reflecting the architectural elegance of a simple bridge. Suitable for indoor / outdoor use. Customization available upon request.',
+    name: 'Dr. Neha Iyer',
+    designation: 'Mentor – Product & Research',
+    department: 'MENTOR',
+    expertise: ['User Research', 'Product Strategy', 'Usability Testing'],
+    availability: 'Project-based Mentorship',
+    role: 'Mentor student activities',
+    affiliation: 'College Faculty',
+    bio:
+      'Mentors student-led projects and hackathons, focusing on research-driven design decisions and creating strong, portfolio-ready outcomes.',
   },
 ];
+
 
 export default function ProductDetail() {
   const [current, setCurrent] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-  const prod = products[current];
+  const prod = facultyMembers[current];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,18 +68,18 @@ export default function ProductDetail() {
     return `inset(${clipValue}% 0 0 0)`;
   };
 
-  const prev = () => setCurrent((i) => (i === 0 ? products.length - 1 : i - 1));
-  const next = () => setCurrent((i) => (i === products.length - 1 ? 0 : i + 1));
+  const prev = () => setCurrent((i) => (i === 0 ? facultyMembers.length - 1 : i - 1));
+  const next = () => setCurrent((i) => (i === facultyMembers.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="min-h-screen w-full bg-[#eceae5] font-sans pb-24">
-      <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-[Neue] pb-24">
+      <div className="w-full  px-3.5 py-15">
         {/* Image Slider Section */}
         <div className="flex justify-center mb-8 relative">
           <div className="relative">
             <img
               src={prod.img}
-              alt={prod.type}
+              alt={prod.name}
               className="w-[375px] h-[375px] md:w-[625px] md:h-[625px] object-cover"
             />
             {/* Close button */}
@@ -218,7 +90,7 @@ export default function ProductDetail() {
             </div> */}
             {/* Detail View button */}
             <div className="absolute bottom-4 right-4">
-              <button className="border border-black bg-white bg-opacity-90 px-3 py-1 text-xs font-mono hover:bg-black hover:text-white transition">
+              <button className="border border-[#ECEAE5] bg-black text-[#ECEAE5] px-3 py-1 text-xs font-[Neue] hover:bg-[#ECEAE5] hover:text-black transition">
                 (DETAIL VIEW)
               </button>
             </div>
@@ -228,16 +100,16 @@ export default function ProductDetail() {
         {/* Navigation Controls - Below Image */}
         <div className="flex items-center justify-center mb-12">
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600">{current + 1}/{products.length}</span>
+            <span className="text-sm text-[#ECEAE5]">{current + 1}/{facultyMembers.length}</span>
             <div className="flex gap-3">
               <button
                 onClick={prev}
-                className="px-3 py-2 text-xl text-gray-700 border border-gray-400 rounded hover:bg-black hover:text-white transition"
+                className="px-3 py-2 text-xl text-gray-300 border border-gray-400 rounded hover:bg-white hover:text-black transition"
                 aria-label="Previous"
               >←</button>
               <button
                 onClick={next}
-                className="px-3 py-2 text-xl text-gray-700 border border-gray-400 rounded hover:bg-black hover:text-white transition"
+                className="px-3 py-2 text-xl text-gray-300 border border-gray-400 rounded hover:bg-white hover:text-black transition"
                 aria-label="Next"
               >→</button>
             </div>
@@ -247,107 +119,173 @@ export default function ProductDetail() {
         {/* Content Section */}
         <div className="w-full">
           {/* Title Row */}
-          <div className="flex justify-between items-start mb-8">
+          <div className="flex justify-between items-start mb-5">
             <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                {prod.model}
+              <h1 className="hidden lg:block text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                {prod.name}
+              </h1>
+              <h1 className="lg:hidden text-xl   font-semibold leading-tight">
+                {prod.name}
               </h1>
             </div>
             <div className="text-right">
-              <h2 className="text-2xl md:text-3xl font-medium text-gray-600">
-                {prod.type}
+              <h2 className="lg:hidden text-xl md:text-3xl font-semibold text-[#ECEAE5]">
+                {prod.department}
+              </h2>
+              <h2 className="hidden lg:block text-2xl md:text-3xl font-semibold text-[#ECEAE5]">
+                {prod.department}
               </h2>
               {/* Plus icon */}
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <span className="text-4xl font-light">+</span>
-              </div>
+              </div> */}
             </div>
           </div>
 
           {/* About Section */}
-          <div className="mb-12">
+          {/* <div className="mb-12">
             <p className="text-lg md:text-xl lg:text-2xl leading-relaxed font-medium">
-              {prod.about}
+              {prod.bio}
             </p>
-          </div>
+          </div> */}
 
           {/* Specifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1px_1fr] gap-8 mb-12">
             {/* Left Column */}
             <div className="space-y-8">
+              {/* Bio in left side */}
+              <div className="mb-8">
+                <p className='text-xs mb-2'>( About )</p>
+                <p className="hidden lg:block text-lg md:text-xl lg:text-2xl leading-relaxed font-semibold">
+                  {prod.bio}
+                </p>
+                <p className="lg:hidden text-sm  leading-snug md:text-xl font-semibold">
+                  {prod.bio} 
+                </p>
+              </div>
               <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(MODEL)</span>
-                <hr className="border-t border-black mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(NAME)</span>
+                
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(NAME)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                />
                 <div className="text-right">
-                  <span className="text-3xl md:text-4xl font-bold">{prod.model}</span>
+                  <span className="hidden lg:block text-3xl md:text-4xl font-bold">{prod.name}</span>
+
+                  <span className="lg:hidden text-xl md:text-4xl font-bold">{prod.name}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(DIMENSIONS)</span>
-                <hr className="border-t border-black mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(designation)</span>
+
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(designation)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.3, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.dimensions}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.designation}</span>
+
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.designation}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(LEAD TIME)</span>
-                <hr className="border-t border-black mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(AVAILABILITY)</span>
+
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(AVAILABILITY)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.4, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.leadTime}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.availability}</span>
+
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.availability}</span>
                 </div>
               </div>
 
               <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(PLACE OF ORIGIN)</span>
-                <hr className="border-t border-black mb-4" />
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(AFFILIATION)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(AFFILIATION)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.5, ease: "easeInOut" }} />
                 <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.origin}</span>
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.affiliation}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.affiliation}</span>
+                </div>
+              </div>
+
+              <div>
+                <span className="hidden lg:block uppercase text-base font-[Neue] text-gray-300 font-semibold  mb-2">(ROLE)</span>
+                <span className="lg:hidden uppercase text-xs font-[Neue] text-gray-300 font-semibold block mb-2">(ROLE)</span>
+                <motion.hr className="border-t border-[#ECEAE5] mb-4 origin-left"
+                initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1.6, ease: "easeInOut" }} />
+                <div className="text-right">
+                  <span className="hidden lg:block text-2xl md:text-3xl font-bold">{prod.role}</span>
+                  <span className="lg:hidden text-xl md:text-3xl font-bold">{prod.role}</span>
                 </div>
               </div>
             </div>
 
+            {/* Center Column - Vertical Line */}
+            <div className="hidden lg:flex justify-center">
+              <div className="w-[1px] h-full bg-white" />
+
+            </div>
+
             {/* Right Column */}
-            <div className="space-y-8">
-              <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(MATERIALS)</span>
-                <hr className="border-t border-black mb-4" />
-                <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.materials[0]}</span>
-                  {prod.materials[1] && (
-                    <span className="text-xl text-gray-400 font-normal ml-2">{prod.materials[1]}</span>
-                  )}
-                </div>
-              </div>
+            <div className="space-y-4">
+              <div className="bg-white text-black px-4 py-4 flex justify-between items-center">
+                <span className="font-mono text-sm font-bold">EXPERTISE</span>
+                <span className="hidden lg:block  text-lg font-bold">{prod.expertise[0]} ▼</span>
 
-              <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(WEIGHT)</span>
-                <hr className="border-t border-black mb-4" />
-                <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.weight}</span>
-                </div>
+                <span className="lg:hidden text-base font-bold">{prod.expertise[0]} ▼</span>
               </div>
-
-              <div>
-                <span className="uppercase text-sm font-mono text-gray-700 block mb-2">(DESIGNED BY)</span>
-                <hr className="border-t border-black mb-4" />
-                <div className="text-right">
-                  <span className="text-2xl md:text-3xl font-bold">{prod.designer}</span>
-                </div>
-              </div>
-
-              {/* Material Selector & Inquiry Button */}
-              <div className="space-y-4 mt-16">
-                <div className="bg-black text-white px-6 py-4 flex justify-between items-center">
-                  <span className="font-mono text-sm font-bold">MATERIAL</span>
-                  <span className="text-lg font-bold">{prod.materials[0]} ▼</span>
-                </div>
-                
-                <button className="w-full border border-black px-6 py-4 text-black font-mono text-sm bg-transparent hover:bg-black hover:text-white transition-colors">
-                  INQUIRE ABOUT PRODUCT
-                </button>
-              </div>
+              
+               <motion.button
+      className="relative w-full overflow-hidden border border-[#ECEAE5] px-6 py-4 font-mono text-sm text-[#ECEAE5] bg-transparent"
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+    >
+      {/* Sliding background */}
+      <motion.div
+        className="absolute inset-0 bg-[#ECEAE5]"
+        variants={{
+          rest: { x: '-100%' },
+          hover: { x: '0%' },
+        }}
+        transition={{
+          duration: 0.5,
+          ease: 'easeOut',
+        }}
+      />
+      {/* Button text */}
+      <motion.span
+        className="relative z-10"
+        variants={{
+          rest: { color: '#ECEAE5' },
+          hover: { color: '#000000' },
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        INQUIRE ABOUT FACULTY
+      </motion.span>
+    </motion.button>
             </div>
           </div>
         </div>
@@ -371,8 +309,8 @@ export default function ProductDetail() {
             <span className="text-xl md:text-4xl font-light">Prev</span>
             <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-200">
               <img
-                src={products[(current === 0 ? products.length - 1 : current - 1)].img}
-                alt="Previous product"
+                src={facultyMembers[(current === 0 ? facultyMembers.length - 1 : current - 1)].img}
+                alt="Previous faculty"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -385,8 +323,8 @@ export default function ProductDetail() {
           >
             <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-200">
               <img
-                src={products[(current === products.length - 1 ? 0 : current + 1)].img}
-                alt="Next product"
+                src={facultyMembers[(current === facultyMembers.length - 1 ? 0 : current + 1)].img}
+                alt="Next faculty"
                 className="w-full h-full object-cover"
               />
             </div>
