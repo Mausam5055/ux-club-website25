@@ -21,7 +21,7 @@ export default function Footer() {
         // whileInView={{opacity:1,y:0}}
         // viewport={{once:false,amount:0.3}}
         // transition={{duration:0.8, ease:"easeInOut"}}
-        className="lg:hidden flex justify-between px-3 mt-5 lg:text-lg sm:text-sm md:text-md text-xs font-semibold bg-black ">
+        className="lg:hidden flex justify-between px-3 mt-5 pb-3 lg:text-lg sm:text-sm md:text-md text-xs font-semibold bg-black ">
             <div className="block">
                 <ul >
                     <li className='font-[Neue]'>

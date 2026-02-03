@@ -69,25 +69,25 @@ export default function HorizontalGallery() {
 
   return (
     // CHANGED: Reduced height from h-[80vw] to h-[60vw]
-    <div className="w-full  bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col p-[3vw]">
+    <div className="w-full  bg-black text-[#eceae5] font-[Neue] overflow-hidden relative flex flex-col ">
       
-      <div className="flex justify-between items-start w-full z-20 relative shrink-0">
-        <div className='px-3'>
-           <h1 className="font-[Neue] font-semibold lg:text-7xl xl:text-7xl  leading-[0.8] tracking-tight">
-             Activities <br />
+      <div className="flex justify-between items-start w-full z-20 relative">
+        <div className='xl:px-8 lg:px-7 px-5 xl:py-6 lg:py-6 py-2  '>
+           <h1 className="font-[Neue] absolute font-semibold lg:text-7xl xl:text-7xl text-2xl tracking-snug">
+             Activities 
            </h1>
         </div>
       
       </div>
 
-      <div className="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2vw] font-light opacity-20 pointer-events-none z-0">
+      {/* <div className="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2vw] font-light opacity-20 pointer-events-none z-0">
         +
-      </div>
+      </div> */}
 
-      <div className="flex-1 w-full flex items-end justify-center xl:gap-[48vw] lg:gap-[46vw] gap-[15vw] relative z-10 pb-[4vw]">
+      <div className="flex-1 w-full flex items-end justify-center xl:gap-[48vw] lg:gap-[46vw] gap-[15vw] relative z-10 ">
         
         {/* Left Image Container */}
-        <div className="relative group xl:w-[18vw] lg:w-[19vw] xl:h-[50vh] lg:h-[38vh] w-[27vw] h-[18vh] aspect-[3/4] shrink-0">
+        <div className="relative group xl:w-[18vw] lg:w-[19vw] xl:h-[50vh] lg:h-[38vh] w-[27vw] h-[18vh] aspect-[3/4] ">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handlePrev}></div>
            
@@ -131,7 +131,7 @@ export default function HorizontalGallery() {
 
 
         {/* Right Image Container (Square aspect ratio) */}
-        <div className="relative group xl:w-[30vw] lg:w-[30vw] w-[45vw] xl:h-[78vh] lg:h-[68vh] h-[27vh] aspect-[1/1] shrink-0">
+        <div className="relative group xl:w-[31vw] lg:w-[31vw] w-[45vw] xl:h-[81vh] lg:h-[71vh] h-[27vh] aspect-[1/1] shrink-0">
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handleNext}></div>
            
