@@ -74,8 +74,11 @@ export default function HorizontalGallery() {
       <div className="flex justify-between items-start w-full z-20 relative">
         <div className='xl:px-7 lg:px-7 px-5 xl:py-6 lg:py-6 py-2  '>
            <h1 className="font-[Neue] absolute font-semibold lg:text-7xl xl:text-7xl text-lg tracking-none lg:tracking-none xl:tracking-none">
-             Our Gallery
+             Our <br/><span className="">
+              Gallery
+              </span>
            </h1>
+           
         </div>
       
       </div>
@@ -91,7 +94,7 @@ export default function HorizontalGallery() {
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handlePrev}></div>
            
-           <div className="hidden md:block absolute -top-[3vw] left-0 text-[0.8vw] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+           <div className="hidden md:block absolute -top-[1.5vw] left-0 text-[0.8vw] font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                ( Prev )
            </div>
 
@@ -118,7 +121,7 @@ export default function HorizontalGallery() {
                 />
              </motion.div>
            </AnimatePresence>
-           {/* <motion.div 
+           <motion.div 
               className="absolute -bottom-6 mt-2 w-full flex justify-between  text-xs md:text-[0.9vw] text-[#eceae5] font-bold "
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
            >
@@ -126,7 +129,7 @@ export default function HorizontalGallery() {
                <div className="leading-tight">
                  <div className=" ">{activeItem.date}</div>
                </div>
-           </motion.div> */}
+           </motion.div>
            
         </div>
 
@@ -136,9 +139,9 @@ export default function HorizontalGallery() {
            
            <div className="absolute inset-0 z-30 md:hidden" onClick={handleNext}></div>
            
-           {/* <div className="hidden md:block absolute -top-[3vw] right-0 text-[0.8vw] font-bold pointer-events-none">
+           <div className="hidden md:block absolute -top-[1.5vw] right-0 text-[0.8vw] font-bold pointer-events-none">
                05_Images
-           </div> */}
+           </div>
 
            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
              <motion.div

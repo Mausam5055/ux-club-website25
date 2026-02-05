@@ -122,8 +122,8 @@ function TeamDetailContent() {
   const next = () => setCurrent((i) => (i === teamInfo.length - 1 ? 0 : i + 1));
 
   return (
-    <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-[Neue] pb-24">
-      <div className="w-full px-3.5 py-15">
+    <div className="min-h-screen w-full bg-black text-[#ECEAE5] font-[Neue] ">
+      <div className="w-full px-3.5 pt-15 pb-1">
         {/* Image Slider Section */}
         <div className="flex justify-center mb-8 relative">
           <div className="relative">
@@ -255,8 +255,11 @@ function TeamDetailContent() {
                   <span className="hidden lg:block text-2xl md:text-3xl font-bold">{team.role}</span>
                   <span className="lg:hidden text-xl md:text-3xl font-bold">{team.role}</span>
                 </div>
+                
               </div>
+              
             </div>
+            
 
             {/* Center Column - Vertical Line */}
             <div className="hidden lg:flex justify-center">
@@ -348,7 +351,7 @@ function TeamDetailContent() {
       </AnimatePresence>
 
       {/* Sticky Footer */}
-      <div 
+      {/* <div 
         className="fixed bottom-0 left-0 w-full bg-[#0e0e0e] py-6 px-8 md:py-9 md:px-12 transition-all duration-700 ease-out"
         style={{
           clipPath: getClipPath(),
@@ -356,9 +359,9 @@ function TeamDetailContent() {
           opacity: scrollY < 0.85 ? 0 : 1
         }}
       >
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex items-center justify-between max-w-7xl mx-auto"> */}
           {/* Previous Section */}
-          <button 
+          {/* <button 
             onClick={prev}
             className="flex items-center gap-4 md:gap-8 text-white hover:opacity-80 transition-opacity"
           >
@@ -370,10 +373,10 @@ function TeamDetailContent() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </button>
+          </button> */}
 
           {/* Next Section */}
-          <button 
+          {/* <button 
             onClick={next}
             className="flex items-center gap-4 md:gap-8 text-white hover:opacity-80 transition-opacity"
           >
@@ -387,7 +390,7 @@ function TeamDetailContent() {
             <span className="text-xl md:text-4xl font-light">Next</span>
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-
+import LenisProvider from './provider/lenis-provider'
 import "./globals.css";
 import NavWrapper from "./NavWrapper";
 
@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
         className={`antialiased`}
       >
         <NavWrapper />
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

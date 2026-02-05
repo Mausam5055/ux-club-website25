@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { motion } from "framer-motion";
 import Nav from "./Nav";
 import Footer from "./footer";
@@ -8,6 +8,9 @@ import Video from "./videoPart";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    console.log('Lenis in Home:', window.lenis)
+  }, [])
   return (
     <>
       {/* Animated content wrapper that slides down when menu opens */}

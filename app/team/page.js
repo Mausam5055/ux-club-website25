@@ -6,12 +6,12 @@ import "../../components/features/team/components/TeamPage.css";
 import teamImg from "../../components/features/team/assets/image.jpg";
 import Members from "../card-stack/imagess/page";
 const teams = [
-  { name: "Tech Team", image: teamImg},
-  { name: "PR Team", image: teamImg},
-  { name: "Content Team", image: teamImg},
-  { name: "Design Team", image: teamImg},
-  { name: "Event Team", image: teamImg},
-  { name: "Social Media Team", image: teamImg},
+  { name: "Tech Team",id: "M_001", image: teamImg},
+  { name: "PR Team", id: "M_002", image: teamImg},
+  { name: "Content Team", id: "M_003", image: teamImg},
+  { name: "Design Team", id: "M_004", image: teamImg},
+  { name: "Event Team", id: "M_005", image: teamImg},
+  { name: "Social Media Team", id: "M_006", image: teamImg},
 ];
 
 const TeamPage = () => {
@@ -60,17 +60,17 @@ const TeamPage = () => {
         <div className="view-controls ">
           <span
             onClick={() => setShowMembers(false)}
-            className={`font-[Neue] text-base cursor-pointer ${!showMembers ? "" : "faded"
+            className={`font-[Neue] text-sm cursor-pointer ${!showMembers ? "" : "faded"
               }`}
           >
             TEAM
           </span>
 
-          <span className="mx-1 font-[Neue] text-base">/</span>
+          <span className="mx-1 font-[Neue] text-sm">/</span>
 
           <span
             onClick={() => setShowMembers(true)}
-            className={`font-[Neue] text-base cursor-pointer ${showMembers ? "" : "faded"
+            className={`font-[Neue] text-sm cursor-pointer ${showMembers ? "" : "faded"
               }`}
           >
             MEMBERS
@@ -87,10 +87,14 @@ const TeamPage = () => {
             <Link 
               href={`/card-stack/teacher?name=${encodeURIComponent(team.name)}`}
             key={index} className="team-card ">
-              <h4 className="team-name font-mono ">{team.name}</h4>
               <div className="placeholder " style={{ position: 'relative' }}>
                 <Image src={team.image} alt={team.name} className="team-image" fill sizes="(max-width: 800px) 50vw, 30vw" style={{ objectFit: 'cover' }} />
               </div>
+              <div className="flex justify-between items-center pt-1">
+                <h4 className="team-name xl:text-sm lg:text-sm text-xs font-[Neue] ">{team.id}</h4>
+                <h4 className="team-name xl:text-sm lg:text-sm text-xs font-[Neue] ">{team.name}</h4>
+              </div>
+              
             </Link>
           ))}
         </div>
