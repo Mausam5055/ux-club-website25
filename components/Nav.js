@@ -501,6 +501,7 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
           <div className="flex gap-6 xl:text-[14px] lg:text-[11px] font-semibold text-[#ECEAE5]">
             <Link href="/" className="hover:text-white transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>1.</span> Home</Link>
             <Link href="/team" className="hover:text-white  transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>2.</span> TEAMS</Link>
+            <Link href="/Blog" className="hover:text-white  transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>3.</span> Blog</Link>
             <button 
                 onClick={toggleMenu} 
                 className={`hover:text-white transition-colors ${isMenuOpen ? "text-[#ECEAE5]" : ""}`}

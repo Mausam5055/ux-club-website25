@@ -8,9 +8,9 @@ const teamInfo = [
   {
     img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     name: 'Tech Team',
-    department: 'TECH',
-    lead: { name: 'yeshu agarwal' },
-    coLead: { name: 'jhalak sahgal' },
+    age: 'T_2025',
+    lead: { name: 'Yeshu Agarwal' },
+    coLead: { name: 'Jhalak Sahgal' },
     responsibilities: ['Website Development', 'App Projects', 'Tech Workshops'],
     meetingSchedule: 'Weekly Leadership Meetings',
     role: 'Overall club management',
@@ -19,9 +19,9 @@ const teamInfo = [
   {
     img: 'https://images.unsplash.com/photo-1565350897149-38dfafa81d83?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     name: 'PR Team',
-    department: 'PR ',
-    lead: { name: 'Yash Verma' },
-    coLead: { name: 'Atherva Sahai' },
+    age: 'T_2025',
+    lead: { name: 'Mansi' },
+    coLead: { name: 'Prateek' },
     responsibilities: ['Outreach', 'Sponsorships', 'Networking'],
     meetingSchedule: 'PR Planning Sessions',
     role: 'Public relations & communications',
@@ -30,9 +30,9 @@ const teamInfo = [
   {
     img: 'https://images.unsplash.com/photo-1690191794328-b2c75ebd86df?q=80&w=1348&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     name: 'Content Team',
-    department: 'CONTENT',
-    lead: { name: 'Yeshu Agarwal' },
-    coLead: { name: 'Jhalak Sahgal' },
+    age: 'T_2025',
+    lead: { name: 'Harsh Mahesh Math' },
+    coLead: { name: 'Pranjali Sharma' },
     responsibilities: ['Blog Writing', 'Documentation', 'Newsletter'],
     meetingSchedule: 'Weekly Dev Sprints',
     role: 'Content creation & curation',
@@ -41,10 +41,10 @@ const teamInfo = [
   {
     img: 'https://images.unsplash.com/photo-1576595580361-90a855b84b20?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     name: 'Design Team',
-    department: 'DESIGN',
-    lead: { name: 'Harsh Mahesh Math' },
-    coLead: { name: 'Pranjali Sharma' },
-    responsibilities: ['designing posters' , 'social media graphics' , 'ui/ux projects'],
+    age: 'T_2025',
+    lead: { name: 'Nitin' },
+    coLead: { name: 'Archisha Nigam' },
+    responsibilities: ['Designing Posters' , 'Social Media Graphics' , 'UI/UX Projects'],
     meetingSchedule: 'Weekly Editorial Meetings',
     role: 'Visual design & branding',
     bio: 'The design team crafts the visual identity of UX Club. They design event posters, social media graphics, and UI/UX projects, ensuring a consistent and engaging brand presence. They also conduct design workshops to upskill members in tools like Figma and Adobe Suite.',
@@ -52,9 +52,9 @@ const teamInfo = [
   {
     img: 'https://plus.unsplash.com/premium_photo-1661767467261-4a4bed92a507?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     name: 'Event Team',
-    department: 'EVENTS',
-    lead: { name: 'atharav sahai' },
-    coLead: { name: 'Prateek' },
+    age: 'T_2025',
+    lead: { name: 'Yash Verma' },
+    coLead: { name: 'Atherva Sahai' },
     responsibilities: ['Event Planning', 'Logistics', 'Speaker Coordination'],
     meetingSchedule: 'Bi-weekly Strategy Sessions',
     role: 'Event planning & management',
@@ -64,9 +64,9 @@ const teamInfo = [
     img: 'https://plus.unsplash.com/premium_photo-1770077133854-1e173086b1c3?q=80&w=980&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     name: 'Social Media Team',
 
-    department: 'SOCIAL MEDIA',
-    lead: { name: 'Nitin' },
-    coLead: { name: 'Archisha Nigam' },
+    age: 'T_2025',
+    lead: { name: 'Veera' },
+    coLead: { name: 'Shivansh' },
     responsibilities: ['Visual Design', 'UI/UX Projects', 'Brand Identity'],
     meetingSchedule: 'Weekly Design Critiques',
     role: 'Social media management & branding',
@@ -74,7 +74,6 @@ const teamInfo = [
   },
   
 ];
-
 
 function TeamDetailContent() {
   const [showJoinModal, setShowJoinModal] = useState(false);
@@ -187,11 +186,11 @@ function TeamDetailContent() {
               </h1>
             </div>
             <div className="text-right">
-              <h2 className="lg:hidden text-xl md:text-4xl font-semibold text-[#ECEAE5]">
-                {team.department}
+              <h2 className="lg:hidden text-xl md:text-3xl font-semibold text-[#ECEAE5]">
+                {team.age}
               </h2>
-              <h2 className="hidden lg:block xl:text-5xl lg:text-5xl  font-semibold text-[#ECEAE5]">
-                {team.department}
+              <h2 className="hidden lg:block text-2xl md:text-3xl   font-semibold text-[#ECEAE5]">
+                {team.age}
               </h2>
             </div>
           </div>
