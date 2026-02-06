@@ -1,7 +1,16 @@
 "use client";
+
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 function Hero() {
+  const [scrollDistance, setScrollDistance] = useState(-10000);
+  
+  useEffect(() => {
+    // Calculate scroll distance on client side only
+    const distance = -(typeof window !== 'undefined' ? window.innerWidth : 1920) * 0.96 * 7 - (16 * 7);
+    setScrollDistance(distance);
+  }, []);
   
   const images = [
     "https://images.unsplash.com/photo-1501685532562-aa6846b14a0e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -29,7 +38,7 @@ function Hero() {
           <motion.div
             className="flex gap-4"
             animate={{
-              x: [0, -window.innerWidth * 0.96 * images.length - (16 * images.length)] 
+              x: [0, scrollDistance] 
             }}
             transition={{
               x: {
