@@ -106,10 +106,24 @@ function TeamDetailContent() {
       const scrollProgress = scrollTop / (documentHeight - windowHeight);
       setScrollY(scrollProgress);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        prev();
+      } else if (e.key === 'ArrowRight') {
+        next();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [current]);
 
   const getClipPath = () => {
     const startReveal = 0.85;
