@@ -1,8 +1,4 @@
 "use client";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { faWindowMinimize } from '@fortawesome/free-regular-svg-icons'
 import { motion } from 'framer-motion'
 
 function Hero() {
