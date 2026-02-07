@@ -1,12 +1,14 @@
 import { useState ,useEffect} from "react";
 import { motion } from "framer-motion";
-import Nav from "./Nav";
+
 import Footer from "./footer";
 import UpcomingEvent from "./upcomingEvent";
 import AfterEvent from "./AfterEvent";
 import Video from "./videoPart";
+import { useMenu } from "../context/MenuContext";
+
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isMenuOpen } = useMenu();
 
   useEffect(() => {
     console.log('Lenis in Home:', window.lenis)
@@ -24,7 +26,7 @@ export default function Home() {
           ease: [0.76, 0, 0.24, 1] 
         }}
       >
-        <div className="min-h-fit pb-4 sm:pb-0 w-full bg-[#0e0e0e] relative text-[#eceae5] pt-3 font-[Neue]">
+        <div className="min-h-fit pb-4 sm:pb-0 w-full bg-black relative text-[#eceae5] pt-3 font-[Neue]">
           <div>
             <h1 className="font-[Socilo] lg:text-[20vw] lg:pl-5 xl:text-[20vw] sm:text-[19vw] md:text-[19vw] pl-2 text-[19vw] leading-none tracking-wide lg:pt-24 sm:pt-17 md:pt-15 pt-10 text-center ">
             UXClub

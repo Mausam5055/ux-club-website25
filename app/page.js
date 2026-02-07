@@ -2,24 +2,89 @@
 
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Home from "../components/Home";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);
   const [count, setCount] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const contentRef = useRef(null);
+
+  const preloaderImages = [
+    "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?q=80&w=1000&auto=format&fit=crop",
+  ];
+
+  // Rotate images rapidly in preloader
+  useEffect(() => {
+    if (showPreloader) {
+      const imageInterval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % preloaderImages.length);
+      }, 150);
+      return () => clearInterval(imageInterval);
+    }
+  }, [showPreloader]);
 
   // Initialize Lenis for smooth scrolling only after preloader
   useEffect(() => {
     if (!showPreloader) {
+      window.history.scrollRestoration = "manual";
       const lenis = new Lenis();
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+
+      // Sync ScrollTrigger with Lenis
+      lenis.on('scroll', ScrollTrigger.update);
+      
+      // Use GSAP ticker for smooth animation loop with stable reference
+      const update = (time) => {
+        lenis.raf(time * 1000);
+      };
+      
+      gsap.ticker.add(update);
+      gsap.ticker.lagSmoothing(0);
+
+      // Robustly set initial scroll position to the middle copy
+      const jumpToMiddle = () => {
+        const height = contentRef.current?.offsetHeight || 0;
+        if (height > 0) {
+           window.scrollTo(0, height);
+           lenis.scrollTo(height, { immediate: true });
+           ScrollTrigger.refresh(); // Ensure triggers update after jump
+        }
+      };
+
+      // Attempt jump immediately and after a short delay to ensure layout is ready
+      jumpToMiddle();
+      const timer = setTimeout(() => {
+          jumpToMiddle();
+      }, 50);
+
+      lenis.on('scroll', ({ scroll }) => {
+        const height = contentRef.current?.offsetHeight || 0;
+        if (height > 0) {
+          if (scroll < 10) { 
+             // Scroll Up Loop: Near top of first copy -> Jump to top of second copy
+             if (scroll <= 0) {
+                lenis.scrollTo(height + scroll, { immediate: true });
+             }
+          } else if (scroll >= 2 * height) {
+            // Scroll Down Loop: Jump to start of second copy (end of first)
+            lenis.scrollTo(scroll - height, { immediate: true });
+          }
+        }
+      });
+      
       return () => {
+        clearTimeout(timer);
+        gsap.ticker.remove(update); 
         lenis.destroy();
       };
     }
@@ -82,8 +147,16 @@ export default function App() {
                   animate={{ width: "15vh" }}
                   transition={{ delay: 0.5, duration: 1 }}
                   exit={{ width: 0 }}
-                  className="h-[15vh] bg-[#0e0e0e]"
-                ></motion.div>
+                  className="h-[20vh] relative overflow-hidden"
+                >
+                    <Image 
+                        src={preloaderImages[currentImageIndex]}
+                        alt="Preloader Image"
+                        fill
+                        className="object-cover transition-opacity duration-100"
+                        priority
+                    />
+                </motion.div>
                 <h1 className="text-5xl">X</h1>
               </div>
             </motion.h1>
@@ -103,7 +176,15 @@ export default function App() {
         )}
       </AnimatePresence>
       {/* Render Home content only when preloader is hidden */}
-      {!showPreloader && <Home />}
+      {!showPreloader && (
+        <>
+          <div ref={contentRef}>
+            <Home />
+          </div>
+          <Home />
+          <Home />
+        </>
+      )}
     </main>
   );
 }

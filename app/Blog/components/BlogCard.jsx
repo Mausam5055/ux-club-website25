@@ -56,7 +56,7 @@ const BlogCard = ({ blog }) => {
 
 const BlogSection = () => {
   return (
-    <section className="xl:py-2 lg:py-2  lg:px-4 px-3.5 xl:px-1  bg-gray-900">
+    <section className="xl:py-2 lg:py-2  lg:px-4 px-3.5 xl:px-1  bg-black">
       <div className="w-full max-w-[94rem] mx-auto">
         <h1 className='font-[Neue] text-2xl xl:mb-5 lg:mb-5 mb-2 text-[#ECEAE5]'>Categories</h1>
 

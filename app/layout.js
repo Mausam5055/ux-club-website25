@@ -1,6 +1,9 @@
+
 import LenisProvider from './provider/lenis-provider'
+
 import "./globals.css";
 import NavWrapper from "./NavWrapper";
+import { MenuProvider } from "../context/MenuContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,10 +17,14 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased`}
       >
-        <NavWrapper />
-        <LenisProvider>
+
+        <MenuProvider>
+          <NavWrapper />
+          <LenisProvider>
           {children}
         </LenisProvider>
+        </MenuProvider>
+
       </body>
     </html>
   );

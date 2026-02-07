@@ -397,12 +397,10 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
   const panelVariants = {
     closed: { 
       height: 0, 
-      opacity: 0,
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
     },
     open: {
       height: "60vh",
-      opacity: 1,
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
   };
@@ -514,25 +512,31 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
 
 
       {/* Black Top Bar (Now Below Panel) */}
-      <div className="w-full bg-transparent mix-blend-difference text-[#eceae5] h-[60px] px-8 flex items-center justify-between xl:text-sm lg:text-xs uppercase tracking-wide z-50 relative">
-        {/* Left: Logo */}
-        <div className="font-bold xl:text-lg lg:text-sm tracking-tighter w-1/7">UX CLUB</div>
+      <div 
+        className={`w-full h-[60px] px-8 flex items-center justify-between xl:text-sm lg:text-xs uppercase tracking-wide z-[100] relative
+        ${isMenuOpen ? "bg-[#0e0e0e] text-[#eceae5]" : "bg-transparent text-[#eceae5]"}`}
+        style={{ mixBlendMode: isMenuOpen ? "normal" : "difference" }}
+      >
+        
+        {/* Left Section: Logo + Info + Scroll */}
+        <div className="flex items-center gap-16 xl:gap-24">
+            {/* Logo */}
+            <div className="font-bold xl:text-lg lg:text-sm tracking-tighter shrink-0">UX CLUB</div>
 
-        {/* Center-Left: Info */}
-        <div className="flex items-center gap-12 w-1/4">
-            <span className="opacity-50  xl:text-base lg:text-[14px]">{time}</span>
-            <span className="font-semibold">BHOPAL , IN</span>
-        </div>
+            {/* Time & Location */}
+            <div className="flex items-center gap-3">
+                <span className="opacity-50 xl:text-base lg:text-[14px] font-[Neue]">{time}</span>
+                <span className="font-semibold xl:text-base lg:text-[14px] font-[Neue]">BHOPAL , IN</span>
+            </div>
 
-        {/* Center: Scroll */}
-        <div className="w-1/4 text-center">
+            {/* Scroll */}
             <span className="font-[Neue] text-[#ECEAE5] font-semibold lg:text-xs xl:text-[15px]">
                 {Math.round(scrollProgress).toString().padStart(2, '0')}%
             </span>
         </div>
 
         {/* Right: Navigation Links */}
-        <div className="flex items-center justify-end gap-10 w-1/2">
+        <div className="flex items-center justify-end gap-10 shrink-0">
           <div className="flex gap-6 xl:text-[14px] lg:text-[11px] font-semibold text-[#ECEAE5]">
             <Link href="/" className="hover:text-white transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>1.</span> Home</Link>
             <Link href="/team" className="hover:text-white  transition-colors"><span className=' xl:text-[14px] lg:text-[12px] text-[#838383]'>2.</span> TEAMS</Link>

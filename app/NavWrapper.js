@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
 import Nav from "../components/Nav";
+import { useMenu } from "../context/MenuContext";
 
 export default function NavWrapper() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isMenuOpen, setIsMenuOpen } = useMenu();
 
   return (
     <Nav

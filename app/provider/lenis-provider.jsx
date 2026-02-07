@@ -12,7 +12,6 @@ export default function LenisProvider({ children }) {
       easing: (t) => 1 - Math.pow(1 - t, 3),
     })
 
-    // 👇 expose globally
     window.lenis = lenis
 
     function raf(time) {

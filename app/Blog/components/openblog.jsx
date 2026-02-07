@@ -27,9 +27,9 @@ function OpenBlog({ blog }) {
 
   return (
     <>
-      <section className={`w-full xl:pt-10 lg:pt-10 pt-8 min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <section className={`w-full xl:pt-10 lg:pt-10 pt-8 min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
         {/* Navigation bar */}
-        <nav className={`flex justify-between items-center px-4 lg:px-5 xl:px-6 py-4 shadow-sm border-b transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 ' : 'bg-white border-gray-200'}`}>
+        <nav className={`flex justify-between items-center px-4 lg:px-5 xl:px-6 py-4 shadow-sm border-b transition-colors duration-300 ${isDarkMode ? 'bg-black ' : 'bg-white border-gray-200'}`}>
           <div className='flex items-center gap-4'>
             <h1 className={`font-[Neue] font-medium text-base transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>BLOG PAGE</h1>
           </div>

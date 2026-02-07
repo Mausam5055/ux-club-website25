@@ -25,7 +25,7 @@ function Hero() {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <main className='bg-gray-900'>
+    <main className='bg-black'>
       <nav className='flex justify-between xl:px-4 lg:px-4 px-4 xl:pt-14 lg:pt-14 pt-10'>
         {/* <h1 className='font-[Neue] font-medium lg:text-base sm:text-base mix-blend-difference text-white'>BLOG PAGE</h1> */}
         
