@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useId } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -53,6 +53,7 @@ const variants = {
 export default function HorizontalGallery() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const uniqueId = useId();
 
   const activeItem = items[index % items.length];
   const nextItem = items[(index + 1) % items.length];
@@ -102,7 +103,7 @@ export default function HorizontalGallery() {
            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
              <motion.div
                key={activeItem.id}
-               layoutId={`card-${activeItem.id}`}
+               layoutId={`card-${activeItem.id}-${uniqueId}`}
                className="absolute inset-0 bg-[#1a1a1a] cursor-pointer overflow-hidden"
                onClick={handlePrev}
                custom={direction}
@@ -146,7 +147,7 @@ export default function HorizontalGallery() {
            <AnimatePresence mode="popLayout" custom={direction} initial={false}>
              <motion.div
                key={nextItem.id}
-               layoutId={`card-${nextItem.id}`}
+               layoutId={`card-${nextItem.id}-${uniqueId}`}
                className="absolute inset-0 bg-[#1a1a1a] cursor-pointer overflow-hidden shadow-2xl"
                onClick={handleNext}
                custom={direction}

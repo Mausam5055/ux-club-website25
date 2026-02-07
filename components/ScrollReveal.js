@@ -96,7 +96,14 @@ const ScrollReveal = ({
       );
     }
 
-    return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    return () => {
+      // Clean up ScrollTrigger instances associated with this component
+      ScrollTrigger.getAll().forEach((t) => {
+        if (t.trigger === el || (t.vars && t.vars.trigger === el)) {
+          t.kill();
+        }
+      });
+    };
   }, [
     scrollContainerRef,
     enableBlur,

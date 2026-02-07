@@ -2,18 +2,27 @@
 
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Home from "../components/Home";
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);
   const [count, setCount] = useState(0);
+  const contentRef = useRef(null);
 
   // Initialize Lenis for smooth scrolling only after preloader
   useEffect(() => {
     if (!showPreloader) {
       const lenis = new Lenis();
+
+      lenis.on('scroll', ({ scroll }) => {
+        const height = contentRef.current?.offsetHeight || 0;
+        if (height > 0 && scroll >= height) {
+          lenis.scrollTo(scroll - height, { immediate: true });
+        }
+      });
+
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -103,7 +112,15 @@ export default function App() {
         )}
       </AnimatePresence>
       {/* Render Home content only when preloader is hidden */}
-      {!showPreloader && <Home />}
+      {!showPreloader && (
+        <>
+          <div ref={contentRef}>
+            <Home />
+          </div>
+          <Home />
+          <Home />
+        </>
+      )}
     </main>
   );
 }
