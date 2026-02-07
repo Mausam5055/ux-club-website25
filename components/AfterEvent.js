@@ -54,9 +54,9 @@ export default function AfterEvent() {
                 // transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     <h1 className='flex justify-center font-[Neue]  lg:text-7xl xl:text-8xl text-xl  items-center gap-x-3'>
-                        {/* <ScrollReveal as="span"> */}
+                        <ScrollReveal as="span">
                         See Our Past Events
-                        {/* </ScrollReveal> */}
+                        </ScrollReveal>
                         <span
                             className="hover:scale-75 transition-ease-in-out duration-300">
 
@@ -79,9 +79,9 @@ export default function AfterEvent() {
 
                     </h1>
                     <h1 className="lg:text-7xl xl:text-8xl">
-                        {/* <ScrollReveal as="span"> */}
+                        <ScrollReveal as="span">
                             0_19
-                        {/* </ScrollReveal> */}
+                        </ScrollReveal>
                     </h1>
                 </div>
                 <div
@@ -95,10 +95,9 @@ export default function AfterEvent() {
                     <div className="hidden lg:block">
                         <h1 className="lg:flex gap-x-20 tracking-wide font-semibold font-[Neue] lg:justify-start lg:items-center">
                             <span className='text-base pb-1'>
-
-                                {/* <ScrollReveal as="span"> */}
+                                <ScrollReveal as="span">
                                     (About uxclub)
-                                {/* </ScrollReveal> */}</span>
+                                </ScrollReveal></span>
 
                             <span className="lg:text-3xl xl:text-4xl  text-sm leading-snug font-bold font-[Neue] tracking-normal ">
                                 <ScrollReveal as="span" stagger={0.02} delay={0.1} >
@@ -142,14 +141,14 @@ export default function AfterEvent() {
                 >
                     <div className='hidden  lg:relative xl:relative tracking-tight leading-tight lg:block space-y-5 font-[Neue] w-full font-bold  lg:w-[60%] xl:w-[60%] '>
                         <h1 className=" lg:absolute xl:leading-tight xl:tracking-tight xl:absolute lg:left-[20rem] xl:text-xs xl:left-[28rem] text-xs ">
-                            {/* <ScrollReveal as="span"> */}
+                            <ScrollReveal as="span">
                                 Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
-                            {/* </ScrollReveal> */}
+                            </ScrollReveal>
                         </h1>
                         <h1 className=" lg:absolute xl:absolute xl:leading-tight xl:tracking-tight xl:left-[28rem] xl:top-[4rem] lg:left-[20rem] lg:top-[5rem] text-xs xl:text-xs ">
-                            {/* <ScrollReveal as="span"> */}
+                            <ScrollReveal as="span">
                                 UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
-                            {/* </ScrollReveal> */}
+                            </ScrollReveal>
                         </h1>
                     </div>
 
