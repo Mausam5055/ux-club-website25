@@ -325,12 +325,10 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
   const panelVariants = {
     closed: { 
       height: 0, 
-      opacity: 0,
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
     },
     open: {
       height: "60vh",
-      opacity: 1,
       transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
   };
@@ -425,7 +423,11 @@ function DesktopNav({ isMenuOpen, setIsMenuOpen }) {
 
 
       {/* Black Top Bar (Now Below Panel) */}
-      <div className="w-full bg-transparent mix-blend-difference text-[#eceae5] h-[60px] px-8 flex items-center justify-between xl:text-sm lg:text-xs uppercase tracking-wide z-50 relative">
+      <div 
+        className={`w-full h-[60px] px-8 flex items-center justify-between xl:text-sm lg:text-xs uppercase tracking-wide z-[100] relative
+        ${isMenuOpen ? "bg-[#0e0e0e] text-[#eceae5]" : "bg-transparent text-[#eceae5]"}`}
+        style={{ mixBlendMode: isMenuOpen ? "normal" : "difference" }}
+      >
         
         {/* Left Section: Logo + Info + Scroll */}
         <div className="flex items-center gap-16 xl:gap-24">
