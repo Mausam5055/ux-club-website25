@@ -1,124 +1,54 @@
 "use client";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-import { useEffect, useRef, useMemo } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+const ScrollReveal = ({ children, className = "", as: Tag = "span", ...props }) => {
+  const element = useRef(null);
+  
+  // Track scroll progress of the element within the viewport
+  // "start 0.9" -> Starts when element top hits 90% of viewport (entering from bottom)
+  // "start 0.25" -> Ends when element top hits 25% of viewport (fully visible/read)
+  const { scrollYProgress } = useScroll({
+    target: element,
+    offset: ["start 0.9", "start 0.25"],
+  });
 
-gsap.registerPlugin(ScrollTrigger);
+  const text = typeof children === "string" ? children : "";
+  // Split by spaces but preserve them in the mapping effectively
+  const words = text.split(" ");
 
-const ScrollReveal = ({
-  as: Tag = "span",
-  children,
-  scrollContainerRef,
-  enableBlur = false,
-  baseOpacity = 0.1,
-  baseRotation = 0,
-  blurStrength = 0,
-  containerClassName = "",
-  textClassName = "",
-  rotationEnd = "bottom bottom",
-  wordAnimationEnd = "bottom bottom",
-  stagger = 0.12,
-}) => {
-  const containerRef = useRef(null);
-
-  const splitText = useMemo(() => {
-    const text = typeof children === "string" ? children : "";
-    return text.split(/(\s+)/).map((word, i) =>
-      /^\s+$/.test(word) ? (
-        word
-      ) : (
-        <span key={i} className="inline-block word">
-          {word}
-        </span>
-      )
-    );
-  }, [children]);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const scroller =
-      scrollContainerRef?.current ? scrollContainerRef.current : window;
-
-    gsap.fromTo(
-      el,
-      { rotate: baseRotation, transformOrigin: "0% 50%" },
-      {
-        rotate: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: "top bottom",
-          end: rotationEnd,
-          scrub: true,
-        },
-      }
-    );
-
-    const words = el.querySelectorAll(".word");
-
-    gsap.fromTo(
-      words,
-      { opacity: baseOpacity },
-      {
-        opacity: 1,
-        stagger: stagger,
-        ease: "none",
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: "top 95%",
-          end: "bottom 20%",
-          scrub: true,
-        },
-      }
-    );
-
-    if (enableBlur) {
-      gsap.fromTo(
-        words,
-        { filter: `blur(${blurStrength}px)` },
-        {
-          filter: "blur(0px)",
-          stagger: 0.05,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: "top bottom-=20%",
-            end: wordAnimationEnd,
-            scrub: true,
-          },
-        }
-      );
-    }
-
-    return () => {
-      // Clean up ScrollTrigger instances associated with this component
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === el || (t.vars && t.vars.trigger === el)) {
-          t.kill();
-        }
-      });
-    };
-  }, [
-    scrollContainerRef,
-    enableBlur,
-    baseRotation,
-    baseOpacity,
-    blurStrength,
-    rotationEnd,
-    wordAnimationEnd,
-    stagger,
-  ]);
+  if (!text) return null;
 
   return (
-    <Tag ref={containerRef} className={`inline-block ${containerClassName}`}>
-      <span className={textClassName}>{splitText}</span>
+    <Tag ref={element} className={`inline-block leading-tight ${className}`} {...props}>
+      {words.map((word, i) => {
+        // Calculate the valid range for this specific word
+        // e.g., first word animates from 0.0 to 0.1 of the scroll range
+        const start = i / words.length;
+        const end = start + (1 / words.length);
+        
+        return (
+          <Word key={i} progress={scrollYProgress} range={[start, end]}>
+            {word}
+          </Word>
+        );
+      })}
     </Tag>
+  );
+};
+
+const Word = ({ children, progress, range }) => {
+  // Map the scroll progress range [start, end] to opacity [0.2, 1]
+  const opacity = useTransform(progress, range, [0.1, 1]);
+  
+  return (
+    <span className="relative mr-[0.3em] inline-block">
+      {/* Background 'ghost' word for the dimmed effect */}
+      <span className="absolute opacity-[0.2] pointer-events-none">{children}</span>
+      
+      {/* Foreground word that animates opacity */}
+      <motion.span style={{ opacity }}>{children}</motion.span>
+    </span>
   );
 };
 

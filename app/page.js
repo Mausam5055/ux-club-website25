@@ -6,6 +6,10 @@ import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Home from "../components/Home";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -36,18 +40,32 @@ export default function App() {
       window.history.scrollRestoration = "manual";
       const lenis = new Lenis();
 
+      // Sync ScrollTrigger with Lenis
+      lenis.on('scroll', ScrollTrigger.update);
+      
+      // Use GSAP ticker for smooth animation loop with stable reference
+      const update = (time) => {
+        lenis.raf(time * 1000);
+      };
+      
+      gsap.ticker.add(update);
+      gsap.ticker.lagSmoothing(0);
+
       // Robustly set initial scroll position to the middle copy
       const jumpToMiddle = () => {
         const height = contentRef.current?.offsetHeight || 0;
         if (height > 0) {
            window.scrollTo(0, height);
            lenis.scrollTo(height, { immediate: true });
+           ScrollTrigger.refresh(); // Ensure triggers update after jump
         }
       };
 
       // Attempt jump immediately and after a short delay to ensure layout is ready
       jumpToMiddle();
-      const timer = setTimeout(jumpToMiddle, 50);
+      const timer = setTimeout(() => {
+          jumpToMiddle();
+      }, 50);
 
       lenis.on('scroll', ({ scroll }) => {
         const height = contentRef.current?.offsetHeight || 0;
@@ -63,15 +81,10 @@ export default function App() {
           }
         }
       });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
       
       return () => {
         clearTimeout(timer);
+        gsap.ticker.remove(update); 
         lenis.destroy();
       };
     }

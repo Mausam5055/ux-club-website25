@@ -108,7 +108,7 @@ export default function AfterEvent() {
 
                         <h1 className="flex gap-x-20 font-semibold font-[Neue]">
                             <span className="lg:text-3xl xl:text-4xl  text-sm font-bold font-[Neue] tracking-normal text-left leading-snug">
-                                <ScrollReveal as="span" stagger={0.05} delay={2.8} >
+                                <ScrollReveal as="span" stagger={0.05} delay={0.2} >
                                     UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
                                 </ScrollReveal>
                             </span>
@@ -127,9 +127,9 @@ export default function AfterEvent() {
                             (About_uxclub)
                         </p>
                         <p className="text-[14px] md:text-2xl text-justify leading-none font-[Neue] tracking-normal mt-4 font-semibold">
-
+                            <ScrollReveal as="span">
                             UXClub focuses on building UX/UI design, product thinking, and digital creativity skills, bringing together designers, developers, and innovators through workshops, design sprints, hackathons, and speaker sessions to promote collaboration, innovation, and real-world problem solving on campus.
-
+                            </ScrollReveal>
                         </p>
                     </div>
                 </div>
@@ -289,10 +289,14 @@ export default function AfterEvent() {
 
                     <div className='lg:hidden'>
                         <p className='tracking-tight font-[Neue] leading-none text-justify text-sm md:text-2xl  mb-2 font-semibold'>
+                            <ScrollReveal as="span">
                             Founded at VIT Bhopal University, UXClub builds a creative design community, uniting designers and developers through UX/UI learning, collaborative projects, workshops, and events, guided by strong design thinking principles.
+                            </ScrollReveal>
                         </p>
                         <p className="text-sm md:text-2xl tracking-tight font-[Neue] text-justify leading-none  font-semibold  mt-4">
+                            <ScrollReveal as="span">
                             UXClub creates experiences that are practical, creative, educational, and culturally meaningful designs.
+                            </ScrollReveal>
                         </p>
                     </div>
                 </motion.div>
