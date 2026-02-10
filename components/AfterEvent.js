@@ -5,26 +5,28 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function AfterEvent() {
 
-    //      const textRef = useRef(null);
+         const textRef = useRef(null);
 
-    //   useEffect(() => {
-    //     gsap.fromTo(
-    //       textRef.current,
-    //       { opacity: 0, y: 30 },
-    //       {
-    //         opacity: 1,
-    //         y: 0,
-    //         scrollTrigger: {
-    //           trigger: textRef.current,
-    //           start: "top 80%",
-    //           end: "+=230",
-    //           scrub: 1,
-    //         },
-    //       }
-    //     );
-    //   }, []);
+      useEffect(() => {
+        gsap.fromTo(
+          textRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            scrollTrigger: {
+              trigger: textRef.current,
+              start: "top 80%",
+              end: "+=230",
+              scrub: 1,
+            },
+          }
+        );
+      }, []);
 
     return (
         <>
