@@ -85,7 +85,7 @@ function OpenBlog({ blog }) {
                 <br />
                 <hr className={` py-0 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`} />
                 <div className={`py-5 mb-6 transition-colors duration-300   ${isDarkMode ? 'bg-transparent' : 'bg-transparent'}`}>
-                  <p className={`text-sm mb-2 transition-colors duration-300 font-[Neue] ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{currentBlog.name} BY STUDENT NAME</p>
+                  <p className={`text-sm mb-2 transition-colors duration-300 font-[Neue] ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{currentBlog.name} BY UX CLUB</p>
                   <p className={`text-sm transition-colors  duration-300 font-[Neue] ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>Student details</p>
                 </div>
               </div>
